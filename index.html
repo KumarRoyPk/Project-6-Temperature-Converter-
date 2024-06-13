@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body{
+            margin: 100px 0px;
+        }
+        h2 {
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        .parent {
+            border: 4px solid yellowgreen;
+            width: 90%;
+            margin: 4px auto;
+            background-color: #ececec;
+
+        }
+
+        #container {
+            text-align: center;
+            background-color: #f1f1f1;
+            width: 45%;
+            margin: 35px auto;
+            padding: 45px;
+            border: 2px solid transparent;
+        }
+
+        .input {
+            display: inline-block;
+            margin: 8px;
+            padding: 16px;
+        }
+
+        .ipa {
+            font-size: 18px;
+            text-align: center;
+            margin: 1px;
+        }
+
+        label {
+            text-align: center;
+            font-size: 18px;
+            /* margin: 13px 15px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+
+        <h2>Temperature Converter</h2>
+
+
+        <div id="container">
+
+            <div class="input">
+                <label>Celsius</label><br><br>
+                <input type="number" value="0" class="ipa" id="cel">
+            </div>
+
+            <div class="input">
+                <label>Fahrenheit</label><br><br>
+                <input type="number" value="32" class="ipa" id="fah">
+            </div>
+
+        </div>
+    </div>
+    <script>
+        let celsius = document.getElementById("cel");
+        let fahrenheit = document.getElementById("fah");
+
+        celsius.addEventListener("input", function () {
+            let cel = this.value;
+            let fah = (cel * 9 / 5) + 32;
+            if (!Number.isInteger(fah)) {
+                fah = fah.toFixed(4);
+            }
+            fahrenheit.value = fah;
+
+        })
+
+        fahrenheit.addEventListener("input", function () {
+            let fah = this.value;
+            let cel = (fah - 32) * 5 / 9;
+            if (!Number.isInteger(cel));
+            {
+                cel = cel.toFixed(4);
+            }
+            celsius.value = cel;
+        })
+
+    </script>
+</body>
+
+</html>
